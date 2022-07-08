@@ -1,6 +1,6 @@
 # InterestCalculator
 
-Note, required .NET 6
+Note, requires .NET 6
 
 To run this project, simply go to ProjectLoanCalculator\Server\ and type dotnet run or run the server project in VS2022
 
