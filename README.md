@@ -9,6 +9,6 @@ To run this project, simply clone it with:
 2. Go to the folder InterestCalculator.Server\,
 3. Type dotnet run or run the server project in VS2022
 
-A blazor app will pop up where you can input amount for the loan and payback time in years
+A blazor app will pop up where you can input amount for the loan and payback time in years along with a submit button
 
 By default, the application will be available in the browser at https://localhost:7052 and http://localhost:5052
