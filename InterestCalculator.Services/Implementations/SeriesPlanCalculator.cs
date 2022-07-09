@@ -12,18 +12,18 @@ namespace InterestCalculator.Services.Implementations
         }
         public IList<PaymentPlan> CalculatePlan(LoanContext context)
         {
-            var months = context.Query.YearsToPayback * 12;
-            var periodInterest = context.Interest/1200;
+            var periods = context.Query.YearsToPayback * context.PeriodsPerYear;
+            var periodInterest = context.YearlyInterest/(context.PeriodsPerYear*100);
             var remaining = context.Query.Amount;
             var result = new List<PaymentPlan> { new PaymentPlan(0, 0, 0, remaining,0) };
-            var monthlyRepayment = remaining / months;
+            var periodRepayment = remaining / periods;
             var totalPaid = 0m;
-            for(var i = 0; i < months; i++)
+            for(var i = 0; i < periods; i++)
             {
-                var monthlyInterest = periodInterest * remaining;
-                remaining -= monthlyRepayment;
-                totalPaid = monthlyInterest + monthlyRepayment + totalPaid;
-                result.Add(new PaymentPlan(i + 1, monthlyRepayment, monthlyInterest, remaining, totalPaid));
+                var interestToPay = periodInterest * remaining;
+                remaining -= periodRepayment;
+                totalPaid = interestToPay + periodRepayment + totalPaid;
+                result.Add(new PaymentPlan(i + 1, periodRepayment, interestToPay, remaining, totalPaid));
             }
             return result;
         }

@@ -13,11 +13,11 @@ namespace InterestCalculator.Services.Implementations
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
         public LoanContext GetContext(LoanProperties props){
-            // Could make this method async and fetch percentage from an external source (database) if we had one
+            // Could make this method async and fetch properties of each loan from an external source (database) if we had one
             return props.LoanType switch
             {
-                LoanType.House => new LoanContext(3.5m, props),
-                LoanType.Car => new LoanContext(2.5m, props),
+                LoanType.House => new LoanContext(3.5m,12, props),
+                LoanType.Car => new LoanContext(2.5m,12, props),
                 _ => throw new ArgumentException($"{nameof(props.LoanType)}:{props.LoanType}")
             };
         }

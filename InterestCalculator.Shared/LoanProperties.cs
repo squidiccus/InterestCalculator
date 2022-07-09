@@ -5,7 +5,7 @@ namespace InterestCalculator.Shared
     public enum LoanPrinciple
     {
         Series = 0,
-        Annuity = 1
+        AnnuityMonthly = 1
     }
     public enum LoanType
     {
