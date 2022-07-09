@@ -33,6 +33,7 @@ else
                 <th>Repayment</th>
                 <th>Interest</th>
                 <th>Remaining</th>
+                <th>Total Paid</th>
             </tr>
         </thead>
         <tbody>
@@ -44,6 +45,7 @@ else
                     <td>@payment.Repayment.ToString("C0")</td>
                     <td>@payment.Interest.ToString("C0")</td>
                     <td>@payment.Remaining.ToString("C0")</td>
+                    <td>@payment.TotalPaid.ToString("C0")</td>
                 </tr>
             }
         </tbody>
