@@ -20,7 +20,7 @@ namespace InterestCalculator.Server.Controllers
         [HttpGet("payment-plan")]
         public IEnumerable<PaymentPlan> GetPaymentPlan([FromQuery] LoanProperties query)
         {
-            // Some sort of validation framework could be added here (FluentValidation etc)
+            // Some sort of validation framework could be added here (FluentValidation etc. Could also add this as a global actionfilter)
             return _provider.GetPaymentPlan(query);
         }
     }

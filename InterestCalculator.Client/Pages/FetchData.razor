@@ -2,13 +2,13 @@
 @using InterestCalculator.Shared
 @inject HttpClient Http
 
-<PageTitle>Weather forecast</PageTitle>
+<PageTitle>Payment Calculator</PageTitle>
 
 <h1>Payment Calculator</h1>
 
 <form>
-    <label><strong>Amount: </strong><input @bind=amount type="number" placeholder="amount"/></label>
-    <label><strong>Number of years: </strong><input @bind=years type="number" placeholder="number of years" /></label>
+    <label><strong>Amount: </strong><input @bind=amount type="number" min="1" placeholder="1 <= amount"/></label>
+    <label><strong>Number of years: </strong><input @bind=years type="number" min="0.25" max = "100" placeholder="0.25 < years < 100" /></label>
     <button @onclick=OnSubmit type = "button" style="width:100px;height:50px;">Submit</button>
 </form>
 @if (error)
@@ -30,7 +30,7 @@ else
             <tr>
                 <th>Month Nr</th>
                 <th>To Pay</th>
-                <th>Deduction</th>
+                <th>Repayment</th>
                 <th>Interest</th>
                 <th>Remaining</th>
             </tr>
@@ -41,7 +41,7 @@ else
                 <tr>
                     <td>@payment.PeriodNr</td>
                     <td>@payment.ToPay.ToString("C0")</td>
-                    <td>@payment.Deduction.ToString("C0")</td>
+                    <td>@payment.Repayment.ToString("C0")</td>
                     <td>@payment.Interest.ToString("C0")</td>
                     <td>@payment.Remaining.ToString("C0")</td>
                 </tr>
