@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using ProjectLoanCalculator.Shared;
+using Shared;
 using Services.PublicInterfaces;
 
-namespace ProjectLoanCalculator.Server.Controllers
+namespace Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]

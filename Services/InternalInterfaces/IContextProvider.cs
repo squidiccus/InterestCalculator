@@ -1,5 +1,5 @@
 ﻿using Domain;
-using ProjectLoanCalculator.Shared;
+using Shared;
 
 namespace Services.InternalInterfaces
 {

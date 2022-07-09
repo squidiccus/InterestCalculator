@@ -1,4 +1,4 @@
-﻿using ProjectLoanCalculator.Shared;
+﻿using Shared;
 
 namespace Services.PublicInterfaces
 {

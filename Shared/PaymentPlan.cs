@@ -1,4 +1,4 @@
-namespace ProjectLoanCalculator.Shared
+namespace Shared
 {
     public class PaymentPlan
     {

@@ -11,9 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Services\Services.csproj" />
-    <ProjectReference Include="..\Client\ProjectLoanCalculator.Client.csproj" />
-    <ProjectReference Include="..\Shared\ProjectLoanCalculator.Shared.csproj" />
+    <ProjectReference Include="..\Services\Services.csproj" />
+    <ProjectReference Include="..\Client\Client.csproj" />
+    <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
 
 

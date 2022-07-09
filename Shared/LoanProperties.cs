@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ProjectLoanCalculator.Shared
+namespace Shared
 {
     public enum LoanPrinciple
     {
