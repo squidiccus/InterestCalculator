@@ -8,7 +8,7 @@
 
 <form>
     <label><strong>Amount: </strong><input @bind=amount type="number" min="1" placeholder="1 <= amount"/></label>
-    <label><strong>Number of years: </strong><input @bind=years type="number" min="0.25" max = "100" placeholder="0.25 < years < 100" /></label>
+    <label><strong>Number of years: </strong><input style="width:200px;" @bind=years type="number" min="0.25" max = "100" placeholder="0.25 < years < 100" /></label>
     <button @onclick=OnSubmit type = "button" style="width:100px;height:50px;">Submit</button>
 </form>
 @if (error)
