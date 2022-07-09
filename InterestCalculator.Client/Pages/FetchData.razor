@@ -1,0 +1,74 @@
+﻿@page "/"
+@using InterestCalculator.Shared
+@inject HttpClient Http
+
+<PageTitle>Weather forecast</PageTitle>
+
+<h1>Payment Calculator</h1>
+
+<form>
+    <label><strong>Amount: </strong><input @bind=amount type="number" placeholder="amount"/></label>
+    <label><strong>Number of years: </strong><input @bind=years type="number" placeholder="number of years" /></label>
+    <button @onclick=OnSubmit type = "button" style="width:100px;height:50px;">Submit</button>
+</form>
+@if (error)
+{
+     <p><em>Error fetching plan, check your input</em></p>
+}
+else if (loading)
+{
+    <p><em>Loading...</em></p>
+}
+else if (plan == null)
+{
+    <p><em>Input Values...</em></p>
+} 
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Month Nr</th>
+                <th>To Pay</th>
+                <th>Deduction</th>
+                <th>Interest</th>
+                <th>Remaining</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var payment in plan )
+            {
+                <tr>
+                    <td>@payment.PeriodNr</td>
+                    <td>@payment.ToPay.ToString("C0")</td>
+                    <td>@payment.Deduction.ToString("C0")</td>
+                    <td>@payment.Interest.ToString("C0")</td>
+                    <td>@payment.Remaining.ToString("C0")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private IList<PaymentPlan>? plan;
+    private bool loading = false;
+    private decimal? amount;
+    private decimal? years;
+    private bool error = false;
+
+    protected async Task OnSubmit()
+    {
+        loading = true;
+        try
+        {
+            error = false;
+            plan = await Http.GetFromJsonAsync<IList<PaymentPlan>>($"/loan/payment-plan?YearsToPayback={years}&amount={amount}") ?? new List<PaymentPlan>();
+        }
+        catch(Exception e)
+        {
+            error = true;
+        }
+        loading = false;
+    }
+}
